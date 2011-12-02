@@ -59,6 +59,10 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := $(common_SRC_FILES)
 LOCAL_C_INCLUDES += $(common_C_INCLUDES) external/icu4c/common
 LOCAL_SHARED_LIBRARIES += $(common_SHARED_LIBRARIES)
+
+ifeq ($(OMAP_ENHANCEMENT), true)
+LOCAL_CFLAGS += -DLIBXML_TREE_ENABLED -DLIBXML_ICU_ENABLED
+endif
 LOCAL_CFLAGS += -fvisibility=hidden
 
 LOCAL_MODULE:= libxml2
